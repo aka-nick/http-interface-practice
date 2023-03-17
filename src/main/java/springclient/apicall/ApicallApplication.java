@@ -47,16 +47,10 @@ public class ApicallApplication {
 	@Configuration
 	static class Config {
 		@Bean
-		WebClient webClient() {
-			return WebClient.create();
-		}
-		@Bean
-		HttpServiceProxyFactory httpServiceProxyFactory() {
-			return HttpServiceProxyFactory.builder(WebClientAdapter.forClient(webClient())).build();
-		}
-		@Bean
 		ErApi erApi() {
-			return httpServiceProxyFactory().createClient(ErApi.class);
+			return HttpServiceProxyFactory.builder(WebClientAdapter.forClient(WebClient.create()))
+					.build()
+					.createClient(ErApi.class);
 		}
 	}
 
