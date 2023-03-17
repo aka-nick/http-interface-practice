@@ -25,6 +25,9 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
+
+	// 셀레니움 의존성 추가
+	implementation 'org.seleniumhq.selenium:selenium-java:4.8.1'
 }
 
 tasks.named('test') {
